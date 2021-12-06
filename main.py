@@ -40,7 +40,7 @@ def set_info(detec):
 
 def show_info(frame, dilated):
     text = f"Carros: {cars}"
-    cv2.putText(frame, text, (450, 70), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 0, 255), 5)
+    cv2.putText(frame, text, (450, 70), cv2.FONT_HERSHEY_COMPLEX, 2, (255, 0, 0), 5)
     cv2.imshow("Video Original", frame)
     cv2.imshow("Detectar", dilated)
 
@@ -73,7 +73,7 @@ while True:
     dilated = cv2.morphologyEx(dilated, cv2.MORPH_CLOSE, kernel)
 
     outline, img = cv2.findContours(dilated, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.line(frame, (25, line_pos), (1200, line_pos), (255, 127, 0), 3)
+    cv2.line(frame, (25, line_pos), (1200, line_pos), (0, 0, 255), 3)
 
     for (i, c) in enumerate(outline):
         (x, y, w, h) = cv2.boundingRect(c)
